@@ -10,6 +10,7 @@
 bool makeSocket(int* socket)
 {
 	//clientSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	int clientSocket;
 	if (clientSocket < 0)
 		return false;
 	return true;
