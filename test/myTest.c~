@@ -1,0 +1,41 @@
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+int conn(char eqStr[1024])
+{
+	int connection;
+	struct sockaddr_in clientService;
+	struct timeval udateTime;
+	int sendToServer;
+    int readFromServer;
+	int timeout;
+	char mms[1024];
+	int server_socket, activity, maxDescriptor;
+	fd_set readSocket;//Массив для проверки на активность сокета.
+
+    if ( (connection = socket( AF_INET, SOCK_STREAM, 0 )) <0 )
+    {
+        printf( "Error at socket():" );
+        return 0;
+    }
+    clientService.sin_family = AF_INET;
+    clientService.sin_addr.s_addr = htonl(INADDR_LOOPBACK);//inet_addr( "192.168.56.101" );// IP-адрес (htonl-порядок хоста через любой интерфейс).
+    clientService.sin_port = htons( 8780 );//Порт(сетевой порядок).
+
+    if ( connect( connection, (struct sockaddr *) &clientService, sizeof(clientService) )<0)
+    {
+      //  printf( "Failed to connect.\n" );
+     //   return 0;
+    }
+
+    //Получить первое сообщение от сервера.
+	readFromServer = recv( connection, mms, sizeof(mms), 0 );
+//printf("mms:  %s",mms);
+close(connection);
+if (strcmp(mms,eqStr))
+return 1;
+else
+return 0;
+
+}

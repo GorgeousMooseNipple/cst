@@ -1,0 +1,1 @@
+/home/like/lab5/os-task4-MuratovaLera/myTests/CMakeFiles/runTests.dir

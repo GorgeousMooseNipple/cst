@@ -1,0 +1,28 @@
+#include <gtest/gtest.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include "myTest.cpp"
+
+// Проверка соединения с сервером.
+TEST(Server,conn)
+{
+	ASSERT_EQ(con(1),1);
+}
+// Проверка подключения и отключения клиента от сети.
+TEST(Server,onoff)
+{
+	ASSERT_EQ(con(2),2);
+}
+// Работает ли передача сообщений.
+TEST(Server,mess)
+{
+	ASSERT_EQ(con(3),3);
+}
+
+int main(int argc, char** argv)
+{
+	testing::InitGoogleTest(&argc,argv);
+	return RUN_ALL_TESTS();
+}
+

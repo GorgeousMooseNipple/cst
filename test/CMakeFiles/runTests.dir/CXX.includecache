@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/like/lab5/os-task4-MuratovaLera/myTests/myTest.cpp
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+errno.h
+-
+unistd.h
+-
+arpa/inet.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+
+/home/like/lab5/os-task4-MuratovaLera/myTests/test.cpp
+gtest/gtest.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+myTest.cpp
+/home/like/lab5/os-task4-MuratovaLera/myTests/myTest.cpp
+
